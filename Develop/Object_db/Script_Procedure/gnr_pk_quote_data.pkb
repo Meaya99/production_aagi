@@ -5,7 +5,7 @@ CREATE OR REPLACE PACKAGE BODY gnr_pk_quote_data IS
   --  Module        TTB_ReconcilePayment
   --  Author        Phoungpaka.H
   --  DATE          17/09/2021
-  --  Purpose       ‡°Á∫¢ÈÕ¡Ÿ≈ TTB Automatic payment reconciliation from Fast Quote and OPUS
+  --  Purpose       ÁáπËÜæ‚à´ËºøÊãá TTB Automatic payment reconciliation from Fast Quote and OPUS
   --  Description   CRF Number 2021-09-BPI-500137: TTB_ReconcilePayment pharse 1
 
 
@@ -15,7 +15,7 @@ CREATE OR REPLACE PACKAGE BODY gnr_pk_quote_data IS
                                                           Add Procedure TTB Automatic payment reconciliation reports
   --   2           29/10/2021       Phoungpaka.H          TTB Project - Automatic Reconcile Phase 1.1
   --   3           21/01/2022       Phoungpaka.H          Fix case Ref2 null 2021-10-BPI-500138 - TTB Project - Automatic Reconcile Phase 1.1(CHGXXXXXX)
-
+ --    4           21/01/2022       Phoungpaka.H          Fix case Ref2 null 2021-10-BPI-500138 - TTB Project - Automatic Reconcile Phase 1.1(CHGXXXXXX)
 */
 ----------------------------------------------------------------------------------------------------
  FUNCTION char2date(p_text IN VARCHAR2) RETURN DATE IS
@@ -521,7 +521,7 @@ PROCEDURE P_ASSIGN_QUOTE_DATA(r_gnr_quote_text IN develop.gnr_quote_text%ROWTYPE
         v_step := 154;
         r_gnr_quote_data.ref2 := NULL;--if 1&3 ,1&2 set null
         /*IF v_cover_year1 =1 THEN
-           r_gnr_quote_data.ref2 :=r_gnr_quote_data.Y1_PAYREF_NUM2; --if ‰¡Ë Ëß§Ë“¡“ Default 1 Year
+           r_gnr_quote_data.ref2 :=r_gnr_quote_data.Y1_PAYREF_NUM2; --if ÁØ©Ëè†Ëåπ„ÇàÂçÖ Default 1 Year
         END IF;
         IF v_cover_year1 =2 THEN
            r_gnr_quote_data.ref2 :=r_gnr_quote_data.Y2_PAYREF_NUM2;
@@ -1061,7 +1061,7 @@ EXCEPTION WHEN invaid_data THEN
   az_pk0_general.LogTrace(v_func_name,userenv('sessionid'),o_msgerror);
 END;
 ----------------------------------------------------------------------------------------------------
---‡°Á∫¢ÈÕ¡Ÿ≈ error from insert gnr_quote_data
+--ÁáπËÜæ‚à´ËºøÊãá error from insert gnr_quote_data
 PROCEDURE P_INS_GNR_QUOTE_DATA_ERR(ir_gnr_quote_data_err IN gnr_quote_data_err%ROWTYPE
                                    ,o_msgerror OUT VARCHAR2)
 IS
@@ -1110,7 +1110,7 @@ EXCEPTION WHEN OTHERS THEN
   az_pk0_general.LogTrace(v_func_name,userenv('sessionid'),o_msgerror);
 END;
 ----------------------------------------------------------------------------------------------------
---‡°Á∫¢ÈÕ¡Ÿ≈ gnr_quote_data
+--ÁáπËÜæ‚à´ËºøÊãá gnr_quote_data
 PROCEDURE P_INS_GNR_QUOTE_DATA(ir_gnr_quote_data IN gnr_quote_data%ROWTYPE
                                ,o_quote_data_id OUT NUMBER
                                ,o_msgerror OUT VARCHAR2)
